@@ -1,0 +1,3 @@
+[submodule "ualand-modpack-vc"]
+	path = ualand-modpack-vc
+	url = https://github.com/mrquantumoff/ualand-modpack-vc.git

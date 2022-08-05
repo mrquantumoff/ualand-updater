@@ -1,13 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Main;
+  font-size: 2em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  @apply bg-slate-800;
+}
+
+@font-face {
+  font-family: Main;
+  src: url(../fonts/Montserrat-ExtraBold.ttf);
+}
+.btn {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.main {
+  display: flex;
+  position: relative;
+  margin-top: 40vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

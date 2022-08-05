@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
 function App() {
+  const [status, setStatus] = useState("Перевірити оновлення");
+
+  const checkForUpdate = (event: any) => {
+    event.preventDefault();
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "", false); // false for synchronous request
+    xmlHttp.send(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="text-center block bg-slate-800 text-slate-50 main">
+        <h1 className="">Менеджер оновлень UALand</h1>
+        <button
+          onClick={checkForUpdate}
+          className="bg-slate-50 text-slate-800 btn rounded-2xl hover:rounded-lg transition-all ease-linear duration-200">
+          {status}
+        </button>
+      </div>
+    </>
   );
 }
 
