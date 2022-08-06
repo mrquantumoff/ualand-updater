@@ -55,28 +55,6 @@ function App() {
         body: "Оновлення модів...",
       });
       setStatus("Завантаження модів...");
-      // const res: any = await fetch(
-      //   "https://downloads.bultek.com.ua/mods-" + latestversion + ".zip",
-      //   {
-      //     method: "GET",
-      //   }
-      // );
-      // if (!res.ok) {
-      //   setStatus("Помилка при скачуванні модів. Спробуйте ще раз.");
-      //   sendNotification({
-      //     title: "Оновлення статусу",
-      //     body: "Помилка при скачуванні модів.",
-      //   });
-      //   setBtnStatus(false);
-      //   return;
-      // }
-      // await writeBinaryFile(
-      //   await join(
-      //     await getMinecraftFolder(),
-      //     "mods-" + latestversion + ".zip"
-      //   ),
-      //   res.data
-      // );
       let mcpath = await getMinecraftFolder();
       console.log("Started downloading");
       invoke("download_mc_mods", {

@@ -15,7 +15,13 @@ export default async function getCurrentVersion(minecraftFolder) {
 
 export async function getMinecraftFolder() {
   if (Platform === "Darwin") {
-    return "~/Library/Application Support/minecraft";
+    return await join(
+      await homeDir(),
+      "Library",
+      "Application Support",
+      "minecraft"
+    );
+    //  "~/Library/Application Support/minecraft";
   } else if (Platform === "Windows_NT") {
     return await join(await homeDir(), "AppData", "Romaing", ".minecraft");
   } else {
