@@ -3,10 +3,10 @@
     windows_subsystem = "windows"
 )]
 
-use std::{fs::File, path::PathBuf};
+use std::{fs::File, io::Write, path::PathBuf};
 
-#[tauri::command(async)]
-fn download_mc_mods(version: &str, mcpath: &str) -> Result<(), ()> {
+#[tauri::command]
+async fn download_mc_mods(version: &str, mcpath: &str) -> Result<(), ()> {
     println!("downloading");
     let modp = PathBuf::from(mcpath).join("mods-".to_owned() + version + ".zip");
     if std::fs::metadata(&modp).is_ok() {
@@ -19,24 +19,29 @@ fn download_mc_mods(version: &str, mcpath: &str) -> Result<(), ()> {
             }
         }
     }
-    if cfg!(windows) {
-    } else {
-        let child = std::process::Command::new("curl")
-            .arg("-sLO")
-            .arg("https://downloads.bultek.com.ua/mods-".to_owned() + version + ".zip")
-            .current_dir(&mcpath)
-            .status();
-        match child {
-            Ok(status) => {
-                if status.success() {
-                    return Ok(());
-                } else {
-                    return Err(());
+    let file = File::create(modp);
+    match file {
+        Ok(mut f) => {
+            let request =
+                reqwest::get("https://dl.bultek.com.ua/mods-".to_owned() + version + ".zip").await;
+            match request {
+                Ok(mut request) => {
+                    while let Some(chunk) =
+                        request.chunk().await.expect("Error while loading chunks")
+                    {
+                        let res = f.write_all(&chunk);
+                        match res {
+                            Ok(_) => {}
+                            Err(_) => return Err(()),
+                        }
+                    }
                 }
+                Err(_) => return Err(()),
             }
-            Err(_) => return Err(()),
         }
+        Err(_) => return Err(()),
     }
+
     Ok(())
 }
 
@@ -60,7 +65,7 @@ async fn install_mods(version: &str, mcpath: &str) -> Result<(), ()> {
     let moda = PathBuf::from(mcpath).join("mods-".to_owned() + version + ".zip");
     let moda = moda.to_str();
     if let Some(modfile) = moda {
-        let file = File::create(modfile);
+        let file = File::open(modfile);
         match file {
             Ok(file) => {
                 let archive = zip::ZipArchive::new(file);

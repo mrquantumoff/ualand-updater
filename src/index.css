@@ -21,6 +21,11 @@ html {
   padding-right: 10%;
 }
 
+.btn-small {
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
 .main {
   display: flex;
   flex: 1;
@@ -29,4 +34,8 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.selector {
+  margin-top: 2%;
 }
