@@ -7,7 +7,7 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "Менеджер оновлень UALand",
+    "productName": "UALand Updater",
     "version": "1.0.0"
   },
   "tauri": {
