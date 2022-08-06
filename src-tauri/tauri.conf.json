@@ -12,14 +12,38 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "all": true,
+      "http": {
+        "scope": [
+          "https://github.com/mrquantumoff/ualand-modpack-vc/*",
+          "https://downloads.bultek.com.ua/*"
+        ],
+        "all": true,
+        "request": true
+      },
+      "fs": {
+        "scope": ["*"],
+        "readFile": true,
+        "writeFile": true,
+        "removeDir": true,
+        "createDir": true
+      },
+      "os": {
+        "all": true
+      },
+      "path": {
+        "all": true
+      },
+      "notification": {
+        "all": true
+      }
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
+      "category": "Utility",
+      "copyright": "2022, Bultek",
       "deb": {
-        "depends": []
+        "depends": ["curl"]
       },
       "externalBin": [],
       "icon": [

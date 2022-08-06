@@ -4,7 +4,6 @@
 @tailwind variants;
 
 body {
-  margin: 0;
   font-family: Main;
   font-size: 2em;
 }
@@ -24,8 +23,9 @@ html {
 
 .main {
   display: flex;
-  position: relative;
-  margin-top: 40vh;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
