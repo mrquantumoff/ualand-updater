@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "Менеджер оновлень UALand",
-    "version": "0.1.0"
+    "version": "1.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -43,16 +43,10 @@
       "category": "Utility",
       "copyright": "2022, Bultek",
       "deb": {
-        "depends": ["curl"]
+        "depends": []
       },
       "externalBin": [],
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
+      "icon": ["icons/server-icon-512.png"],
       "identifier": "com.ua.bultek.ualand.updater",
       "longDescription": "",
       "macOS": {
@@ -75,7 +69,11 @@
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": true,
+      "endpoints": [
+        "https://github.com/mrquantumoff/ualand-modpack-vc/raw/master/tauri-updater.json"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEMwQTU3QUUwODU1MkFFNApSV1RrS2xVSXJsY0tES0V1VmNwZ0Z2MnVnVVlINXJFTDJQeEpETHN1Q2wzY2owRXBSMU4rQSt6TAo"
     },
     "windows": [
       {
