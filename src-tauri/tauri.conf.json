@@ -46,7 +46,7 @@
         "depends": []
       },
       "externalBin": [],
-      "icon": ["icons/server-icon-512.png", "icons/server-icon-512.ico"],
+      "icon": ["icons/server-icon-512.png", "icons/icon.ico"],
       "identifier": "com.ua.bultek.ualand.updater",
       "longDescription": "",
       "macOS": {
