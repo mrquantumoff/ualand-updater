@@ -23,7 +23,7 @@ export async function getMinecraftFolder() {
     );
     //  "~/Library/Application Support/minecraft";
   } else if (Platform === "Windows_NT") {
-    return await join(await homeDir(), "AppData", "Romaing", ".minecraft");
+    return await join(await homeDir(), "AppData", "Roaming", ".minecraft");
   } else {
     return await join(await homeDir(), ".minecraft");
   }
