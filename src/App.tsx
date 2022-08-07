@@ -74,11 +74,11 @@ function App() {
           })
             .then(() => {
               setStatus("Моди встановлені");
-              setBtnStatus(false);
               sendNotification({
                 title: "Оновлення статусу",
                 body: "Моди встановлені",
               });
+              getCurVer();
             })
             .catch(() => {
               setStatus("Помилка при встановлені модів");

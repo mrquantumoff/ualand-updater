@@ -3,7 +3,11 @@
     windows_subsystem = "windows"
 )]
 
-use std::{fs::File, io::Write, path::PathBuf};
+use std::{
+    fs::{self, File},
+    io::Write,
+    path::PathBuf,
+};
 
 #[tauri::command]
 async fn download_mc_mods(version: &str, mcpath: &str) -> Result<(), ()> {
@@ -73,7 +77,13 @@ async fn install_mods(version: &str, mcpath: &str) -> Result<(), ()> {
                     Ok(mut archive) => {
                         let finalres = archive.extract(&mcpath);
                         match finalres {
-                            Ok(_) => return Ok(()),
+                            Ok(_) => {
+                                let cleanupres = fs::remove_file(moda.unwrap());
+                                match cleanupres {
+                                    Ok(()) => return Ok(()),
+                                    Err(_) => return Err(()),
+                                }
+                            }
                             Err(_) => {
                                 println!("");
                                 return Err(());
