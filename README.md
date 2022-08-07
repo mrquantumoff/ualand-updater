@@ -1,4 +1,4 @@
-## Dev Building guide
+## Dev building guide
 * Set up [Tauri development environment](https://tauri.app/v1/guides/getting-started/prerequisites)
 * Run ``` yarn run tauri dev``` or ```yarn run devt``` 
 
