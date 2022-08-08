@@ -57,6 +57,7 @@ function App() {
       setStatus("Завантаження модів...");
       let mcpath = await getMinecraftFolder();
       console.log("Started downloading");
+
       invoke("download_mc_mods", {
         mcpath: mcpath,
         version: latestversion.toString(),

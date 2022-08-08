@@ -3,6 +3,8 @@
     windows_subsystem = "windows"
 )]
 
+use chrono::prelude::*;
+
 use std::{
     fs::{self, File},
     io::Write,
@@ -11,23 +13,13 @@ use std::{
 
 #[tauri::command]
 async fn download_mc_mods(version: &str, mcpath: &str) -> Result<(), ()> {
-    println!("downloading");
     let modp = PathBuf::from(mcpath).join("mods-".to_owned() + version + ".zip");
-    if std::fs::metadata(&modp).is_ok() {
-        let q = std::fs::remove_file(&modp);
-        match q {
-            Ok(()) => {}
-            Err(_) => {
-                println!("OnRemoveError");
-                return Err(());
-            }
-        }
-    }
     let file = File::create(modp);
     match file {
         Ok(mut f) => {
             let request =
-                reqwest::get("https://dl.bultek.com.ua/mods-".to_owned() + version + ".zip").await;
+                reqwest::get("https://downloads.bultek.com.ua/mods-".to_owned() + version + ".zip")
+                    .await;
             match request {
                 Ok(mut request) => {
                     while let Some(chunk) =
@@ -40,10 +32,18 @@ async fn download_mc_mods(version: &str, mcpath: &str) -> Result<(), ()> {
                         }
                     }
                 }
-                Err(_) => return Err(()),
+                Err(_) => {
+                    println!("Failed to create the request");
+
+                    return Err(());
+                }
             }
         }
-        Err(_) => return Err(()),
+        Err(_) => {
+            println!("Failed to create the zip file");
+
+            return Err(());
+        }
     }
 
     Ok(())
@@ -52,11 +52,13 @@ async fn download_mc_mods(version: &str, mcpath: &str) -> Result<(), ()> {
 #[tauri::command]
 async fn install_mods(version: &str, mcpath: &str) -> Result<(), ()> {
     let modp = PathBuf::from(mcpath).join("mods");
-    if std::fs::metadata(&modp).is_ok() {
+    if modp.exists() {
+        let time = Utc::now();
         let res = std::fs::rename(
             &modp,
-            PathBuf::from(&mcpath)
-                .join("mods-".to_owned() + chrono::offset::Utc::now().to_string().as_ref()),
+            PathBuf::from(&mcpath).join(
+                "mods backup".to_owned() + time.format("%d-%m-%Y (%H-%M-%S)").to_string().as_ref(),
+            ),
         );
         match res {
             Ok(_) => {}

@@ -216,9 +216,6 @@ name = "bytes"
 version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec8a7b6a70fde80372154c65702f00a0f56f3e1c36abbc6c440484be248856db"
-dependencies = [
- "serde",
-]
 
 [[package]]
 name = "bzip2"
@@ -2525,7 +2522,6 @@ dependencies = [
  "serde_urlencoded",
  "tokio",
  "tokio-native-tls",
- "tokio-util",
  "tower-service",
  "url",
  "wasm-bindgen",
@@ -3101,7 +3097,6 @@ dependencies = [
  "anyhow",
  "attohttpc",
  "base64",
- "bytes",
  "cocoa",
  "dirs-next",
  "embed_plist",
@@ -3125,7 +3120,6 @@ dependencies = [
  "rand 0.8.5",
  "raw-window-handle",
  "regex",
- "reqwest",
  "rfd",
  "semver 1.0.13",
  "serde",
