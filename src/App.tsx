@@ -118,14 +118,14 @@ function App() {
 
   return (
     <>
-      <div className="text-center block bg-slate-800 text-slate-50 main">
+      <div className="main">
         <h1 className="">Менеджер оновлень UALand</h1>
         <form onSubmit={checkForUpdate}>
           <input
             type="submit"
             value={status}
             disabled={btnStatus}
-            className="bg-slate-50 text-slate-800 btn rounded-2xl hover:rounded-lg transition-all ease-linear duration-200"></input>
+            className="btn"></input>
         </form>
         <h2>Остання версія: {versions[0]}</h2>
         <h2>Встановлена версія: {versions[1]}</h2>

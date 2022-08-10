@@ -17,13 +17,11 @@ html {
   src: url(../fonts/Montserrat-ExtraBold.ttf);
 }
 .btn {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.btn-small {
-  padding-left: 7%;
-  padding-right: 7%;
+  padding: 0;
+  padding-left: 15%;
+  padding-right: 15%;
+  margin-left: -15%;
+  @apply bg-slate-50 text-slate-800 rounded-2xl hover:text-slate-50 hover:bg-slate-800 hover:outline hover:outline-4 outline-slate-50 transition-all ease-linear duration-200;
 }
 
 .main {
@@ -34,8 +32,5 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.selector {
-  margin-top: 2%;
+  @apply text-center bg-slate-800 text-slate-50;
 }
