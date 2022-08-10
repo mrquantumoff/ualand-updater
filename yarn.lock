@@ -2340,7 +2340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-patch@npm:^1.1.0":
+"@rushstack/eslint-patch@npm:^1.1.0, @rushstack/eslint-patch@npm:^1.1.4":
   version: 1.1.4
   resolution: "@rushstack/eslint-patch@npm:1.1.4"
   checksum: 597bc84e2f76c7f5f2bcedd4c4b1dd5d02524167a0f67ac588e8fbbd94666297aaf0e6a53ec46afb95554164fc1169ff782841003280e4bc98e80ab6559412c6
@@ -12659,6 +12659,7 @@ __metadata:
   resolution: "ualand-updater@workspace:."
   dependencies:
     "@emotion/react": ^11.10.0
+    "@rushstack/eslint-patch": ^1.1.4
     "@tauri-apps/api": ^1.0.2
     "@tauri-apps/cli": ^1.0.5
     "@testing-library/jest-dom": ^5.14.1

@@ -1,9 +1,14 @@
 {
   "name": "ualand-updater",
   "version": "0.1.0",
+  "author": {
+    "email": "mrquantumoff@protonmail.com",
+    "name": "mrquantumoff"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.0",
+    "@rushstack/eslint-patch": "^1.1.4",
     "@tauri-apps/api": "^1.0.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",

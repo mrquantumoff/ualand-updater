@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@emotion/react", "virtual:6542716fb85a0e174ac741e8f8d08f9b7df7410a96c29f0bc656dff8d68eb9adfd76ace15c8dcbf1e3e6effd64f2071547bd5b3232e477589c87272f91dc1588#npm:11.10.0"],\
+            ["@rushstack/eslint-patch", "npm:1.1.4"],\
             ["@tauri-apps/api", "npm:1.0.2"],\
             ["@tauri-apps/cli", "npm:1.0.5"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -17031,6 +17032,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["ualand-updater", "workspace:."],\
             ["@emotion/react", "virtual:6542716fb85a0e174ac741e8f8d08f9b7df7410a96c29f0bc656dff8d68eb9adfd76ace15c8dcbf1e3e6effd64f2071547bd5b3232e477589c87272f91dc1588#npm:11.10.0"],\
+            ["@rushstack/eslint-patch", "npm:1.1.4"],\
             ["@tauri-apps/api", "npm:1.0.2"],\
             ["@tauri-apps/cli", "npm:1.0.5"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
